@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+  <!-- Make it compatible to mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Recommendation Feature</title>
+  
+</head>
+
+<body style="background: rgb(233, 223, 223);">
+ <div class="login">
+	<h1 style="color:rgb(0, 0, 0);">AI Feature recommendation</h1>
+     <!-- Action is where the data is sent. In our case, predict page.
+     If action is omitted, it assumed to be the current page -->
+     <form action="{{ url_for('predict')}}"method="post">
+
+    	<!--<input type="text" name="Date_Booked" placeholder="Enter the Date" required="required" /><br>
+        <input type="text" name="Time_Start" placeholder="Enter the Time_Start" required="required" /><br>
+        <input type="text" name="Time_End" placeholder="Enter the Time_End" required="required" /><br>
+
+        <br>
+        <br>-->
+              
+      <label for="Reservation--start-date-time">Choose a start date and time for your work place Reservation:</label>
+
+      <input type="date" id="reservation-date"
+       name="reservation-date" value="2023-02-01"
+       min="2023-01-01" max="2055-01-01">
+
+       <input type="time" id="reservation-time_1"
+       name="reservation-time_1" value="09:00"
+       min="00:00" max="23:59">
+      <input type="time" id="reservation-time_2"
+       name="reservation-time_2" value="11:00"
+       min="00:00" max="23:59">
+       
+      <p>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict Recommended days to book in Advance</button></p>
+    </form>
+
+   <h4 style="color:rgb(59, 59, 59);">
+   {{prediction_text}} </h4>
+
+ </div>
+
+
+</body>
+</html>
